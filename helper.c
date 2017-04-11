@@ -87,8 +87,6 @@ void printMatrix(int numV, int aList[][numV])
 	}
 }
 
-
-
 // void getEdge(FILE *input, int *edge)
 // {	
 // 	char *V1,*V2,*E;

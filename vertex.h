@@ -20,6 +20,7 @@ extern void updateV(BinomialNode *b, void *v);
 extern int compareV(void *a, void *b);
 extern void displayV(FILE *fp, void *v);
 extern void getVertices(char *fileName, DArray *Vlist, int numV,int matrix [][numV]);
-
+extern Vertex *findSource(DArray *Vlist, int min);
+extern void printArray(DArray *Vlist);
 
 #endif

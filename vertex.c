@@ -28,7 +28,7 @@ void updateV(BinomialNode *b, void *v)
 	V->position = b;
 }
 
-//This compare function was a 
+
 int compareV(void *a, void *b) {
      if(a == NULL && b == NULL) return 0;
      else if(a == NULL) return -1;
@@ -68,8 +68,13 @@ void getVertices(char *fileName, DArray *Vlist, int numV, int aList[][numV])
 	inputFile = fopen(fileName,"r");
 	
 	char *V1,*V2,*E;
-	int v1, v2, edge;
+	int i, v1, v2, edge;
 
+	for (i = 0; i < numV; ++i)
+	{
+		insertDArray(Vlist,NULL);
+	}
+	//printf("Array of vertices\n");
 	while(v1!=EOF)
 	{
 		V1 = readToken(inputFile);
@@ -93,7 +98,7 @@ void getVertices(char *fileName, DArray *Vlist, int numV, int aList[][numV])
 			edge = atoi(E);
 			readToken(inputFile);
 		}
-		printf("v1 %d\t v2 %d\t edge %d\n", v1,v2,edge);
+		
 		if (aList[v1][v2] == 0  || aList[v2][v1]==0)
 		{
 			aList[v1][v2] = edge;
@@ -107,9 +112,51 @@ void getVertices(char *fileName, DArray *Vlist, int numV, int aList[][numV])
 				aList[v2][v1] = edge;
 			}
 		}
-		
+		//Create dynamic array of stored vertices
+		Vertex *v1_node = newV(v1), *v2_node = newV(v2);
+
+		if (getDArray(Vlist, v1)==NULL)
+		{
+			setDArray(Vlist,v1,v1_node);
+		}
+		if (getDArray(Vlist, v2)==NULL)
+		{
+			setDArray(Vlist,v2,v2_node);
+		}
 		
 	}
 	fclose(inputFile);
+	
+
 	return;
+}
+
+Vertex *findSource(DArray *Vlist, int min)
+{
+	int i;
+	for (i = 0; i < sizeDArray(Vlist); ++i)
+	{
+		Vertex *v = getDArray(Vlist,i);
+		if (v != NULL  && v->key == min)
+		{
+			return v;
+		}
+	}
+	return NULL;
+}
+
+void printArray(DArray *array)
+{
+	int i;
+	printf("List of Vertices\n");
+	for (i = 0; i < sizeDArray(array); ++i)
+	{
+		Vertex *v = getDArray(array, i);
+		if (v!=NULL)
+		{
+			displayV(stdout,v);
+			printf(" ");
+		}
+	}
+	printf("\n");
 }

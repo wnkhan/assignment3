@@ -31,9 +31,10 @@ int main(int argc,char *argv[])
 	
 	DArray *Vlist = newDArray(displayInteger);
 	getVertices(argv[1],Vlist, maxV, adjMatrix);
-	printMatrix(maxV,adjMatrix);
+	printArray(Vlist);
+	// printMatrix(maxV,adjMatrix);
 
-
+	Vertex *src = findSource(Vlist, minV);
 
 
 	return 0;

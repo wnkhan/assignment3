@@ -11,7 +11,8 @@ void getDimensions(char *fileName, int *max, int *min)
 	inputFile = fopen(fileName,"r");
 	
 	char *V1,*V2,*E;
-	int v1, v2, edge;
+	int v1, v2;
+	// int edge;
 
 	while(v1!=EOF)
 	{
@@ -27,16 +28,16 @@ void getDimensions(char *fileName, int *max, int *min)
 		{
 			v1 = atoi(V1);
 			v2 = atoi(V2);
-			edge = 1;
+			// edge = 1;
 		}
 		else
 		{
 			v1 = atoi(V1);
 			v2 = atoi(V2);
-			edge = atoi(E);
+			// edge = atoi(E);
 			readToken(inputFile);
 		}
-		printf("v1 %d\t v2 %d\t edge %d\n", v1,v2,edge);
+		//printf("v1 %d\t v2 %d\t edge %d\n", v1,v2,edge);
 		//Find maximum
 		if (v1 > v2)
 		{
@@ -86,30 +87,3 @@ void printMatrix(int numV, int aList[][numV])
 		printf("\n");
 	}
 }
-
-// void getEdge(FILE *input, int *edge)
-// {	
-// 	char *V1,*V2,*E;
-
-// 	V1 = readToken(input);
-// 	if (V1==0)
-// 	{
-// 		return;
-// 	}
-// 	V2 = readToken(input);
-// 	E = readToken(input);
-
-// 	if (strcmp(E,";") == 0)
-// 	{
-// 		edge[0] = atoi(V1);
-// 		edge[1] = atoi(V2);
-// 		edge[2] = 1;
-// 	}
-// 	else
-// 	{
-// 		edge[0] = atoi(V1);
-// 		edge[1] = atoi(V2);
-// 		edge[2] = atoi(E);
-// 		readToken(input);
-// 	}
-// }

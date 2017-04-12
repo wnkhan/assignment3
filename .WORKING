@@ -1,7 +1,7 @@
 /home/genghis/CS201/assignment3
-Sat Apr  8 01:09:59 CDT 2017
-binomial.c  input_file	queue.h    test-binomial.c	  WORKING
-binomial.h  integer.c	scanner.c  test-darray.c
-darray.c    integer.h	scanner.h  vertex.c
-darray.h    makefile	sll.c	   vertex.h
-dijkstra.c  queue.c	sll.h	   wnkhan@crimson.ua.edu
+Tue Apr 11 19:27:28 CDT 2017
+binomial.c  helper.c	makefile   scanner.h	    vertex.c
+binomial.h  helper.h	p3Testing  sll.c	    vertex.h
+darray.c    input_file	queue.c    sll.h	    wnkhan@crimson.ua.edu
+darray.h    integer.c	queue.h    test-binomial.c  WORKING
+dijkstra.c  integer.h	scanner.c  test-darray.c

@@ -22,7 +22,7 @@ Vertex *newV(int key) {
 //accordance with a discussion that 
 //took place with classmates on the proper
 //way to handle the vertex type to be used for Dikj.
-void updateV(BinomialNode *b, void *v)
+void updateV(void *v, BinomialNode *b)
 {
 	Vertex *V = v;
 	V->position = b;
@@ -159,4 +159,17 @@ void printArray(DArray *array)
 		}
 	}
 	printf("\n");
+}
+
+void buildHeap(Binomial *h, DArray *d)
+{
+	int i;
+	for (i = 0; i < sizeDArray(d); ++i)
+	{
+		Vertex *v =	getDArray(d,i);
+		if (v!=NULL)
+		{
+			v->position = insertBinomial(h,v);
+		}
+	}
 }

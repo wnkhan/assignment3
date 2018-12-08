@@ -11,7 +11,7 @@
 #include "vertex.h"
 #include "helper.h"
 
-void theGreatDickStraw(Vertex *src, Binomial *heap, DArray *Vlist, int numV, int aList[][numV]);
+void Dijkstra(Vertex *src, Binomial *heap, DArray *Vlist, int numV, int aList[][numV]);
 void displaySPT(queue *visited);
 
 int main(int argc,char *argv[])
@@ -44,13 +44,13 @@ int main(int argc,char *argv[])
 	buildHeap(heap,Vlist);
 	//displayBinomial(stdout,heap);
 
-	theGreatDickStraw(src, heap, Vlist, maxV, adjMatrix);
+	Dijkstra(src, heap, Vlist, maxV, adjMatrix);
 
 	return 0;
 }
-//Dikjstra's basic outline was provided in the CS201 forum that can
+//Dijkstra's basic outline was provided in the CS201 forum that can
 //be found on the course website.
-void theGreatDickStraw(Vertex *src, Binomial *heap, DArray *Vlist, int numV, int aList[][numV])
+void Dijkstra(Vertex *src, Binomial *heap, DArray *Vlist, int numV, int aList[][numV])
 {
 	queue *visited = newQueue(displayV);
 	src->distance = 0;
